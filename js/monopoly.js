@@ -1,6 +1,6 @@
 var Monopoly = {};
 Monopoly.allowRoll = true;
-Monopoly.moneyAtStart = 500;
+Monopoly.moneyAtStart = 0;
 Monopoly.doubleCounter = 0;
 
 Monopoly.init = function(){
@@ -44,7 +44,7 @@ Monopoly.updatePlayersMoney = function(player,amount){
     var playersMoney = parseInt(player.attr("data-money"));
     playersMoney -= amount;
     if (playersMoney < 0 ){
-        alert("you are broke!")
+        Monopoly.showPopup("broke");
     }
     player.attr("data-money",playersMoney);
     player.attr("title",player.attr("id") + ": $" + playersMoney);
@@ -194,7 +194,7 @@ Monopoly.handleChanceCard = function(player){
 
 Monopoly.handleCommunityCard = function(player){
     //TODO: implement this method
-    alert("not implemented yet!")
+    //alert("not implemented yet!")
     Monopoly.setNextPlayerTurn();
 };
 

@@ -214,7 +214,7 @@ body{
     width: 25%;
     height: 25%;
     margin: 4%;
-    background-color: black;
+    background-color: #364c9c;
     border-radius: 100px;
     opacity:0;
 }
@@ -223,6 +223,7 @@ body{
     margin-left:36%;
 }
 
-.jailed{
-    background-color: black;
-}
+.player.jailled{
+    background-image:url(../images/injail2.png);
+    background-size:contain;
+    background-position:center;
