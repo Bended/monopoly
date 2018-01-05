@@ -223,7 +223,32 @@ body{
     margin-left:36%;
 }
 
-.player.jailled{
+.jailed#player1{
     background-image:url(../images/injail2.png);
     background-size:contain;
     background-position:center;
+}
+
+.jailed#player2{
+    background-image:url(../images/injail2.png);
+    background-size:contain;
+    background-position:center;
+}
+
+.jailed#player3{
+    background-image:url(../images/injail2.png);
+    background-size:contain;
+    background-position:center;
+}
+
+.jailed#player4{
+    background-image:url(../images/injail2.png);
+    background-size:contain;
+    background-position:center;
+}
+
+.atHome{
+    background-image:url(../images/happy2.png);
+    background-size:contain;
+    background-position:center;
+}
