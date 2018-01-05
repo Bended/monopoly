@@ -252,3 +252,7 @@ body{
     background-size:contain;
     background-position:center;
 }
+
+.broke{
+    display: none;
+}

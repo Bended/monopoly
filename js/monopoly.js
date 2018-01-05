@@ -45,17 +45,12 @@ Monopoly.updatePlayersMoney = function(player,amount){
     var playersMoney = parseInt(player.attr("data-money"));
     playersMoney -= amount;
     if (playersMoney < 0 ){
-        Monopoly.showPopup("broke");
+        Monopoly.handleBroke("player");
     }
     player.attr("data-money",playersMoney);
     player.attr("title",player.attr("id") + ": $" + playersMoney);
     Monopoly.playSound("chaching");
 };
-
-Monopoly.broke = function(player){
-  Monopoly.closePopup();
-
-}
 
 //Dots on the dices have class that are selected depending on the result number.
 Monopoly.rollDice = function(){
@@ -88,6 +83,22 @@ Monopoly.movePlayer = function(player,steps){
     },200);
 };
 
+//Display a popup and exit the player when broke
+Monopoly.handleBroke = function(player){
+    var playerBroke = Monopoly.getCurrentPlayer();
+    var popup = Monopoly.getPopup("broke");
+    //var playerCell = Monopoly.getPlayersCell(playerBroke);
+    popup.find("button").unbind("click").bind("click",function(){
+        Monopoly.doubleCounter = 0;
+        Monopoly.setNextPlayerTurn();
+        playerBroke.removeClass('shadowed');
+        playerBroke.addClass('broke');
+        Monopoly.closePopup();
+    });
+    Monopoly.showPopup("broke");
+  }
+
+
 //handleTurn manage playing events
 Monopoly.handleTurn = function(){
     var player = Monopoly.getCurrentPlayer();
@@ -119,6 +130,11 @@ Monopoly.setNextPlayerTurn = function(){
       Monopoly.doubleCounter = 0;
     } else {
       nextPlayerId = playerId + 1;
+          if($('#player' + nextPlayerId).hasClass('broke')) {
+            nextPlayerId = nextPlayerId + 1;
+        } else if ($('#player' + nextPlayerId).hasClass('broke')) {
+                nextPlayerId = nextPlayerId + 1;
+              }
     }
     if (nextPlayerId > $(".player").length){
         nextPlayerId = 1;
