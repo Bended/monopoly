@@ -199,6 +199,14 @@ body{
     background-color: #d061cd;
 }
 
+.player#player5 , .player5.cell .content{
+    background-color: white;
+}
+
+.player#player6 , .player6.cell .content{
+    background-color: pink;
+}
+
 .player.current-turn{
     background-image:url(../images/crown.png);
     background-size:contain;
@@ -242,6 +250,18 @@ body{
 }
 
 .jailed#player4{
+    background-image:url(../images/injail2.png);
+    background-size:contain;
+    background-position:center;
+}
+
+.jailed#player5{
+    background-image:url(../images/injail2.png);
+    background-size:contain;
+    background-position:center;
+}
+
+.jailed#player6{
     background-image:url(../images/injail2.png);
     background-size:contain;
     background-position:center;
