@@ -88,7 +88,6 @@ Monopoly.handleBroke = function(player){
     var playerBroke = Monopoly.getCurrentPlayer();
     var popup = Monopoly.getPopup("broke");
     var brokeProperty = $('.' + playerBroke.attr('Id'));
-    console.log(brokeProperty);
     popup.find("button").unbind("click").bind("click",function(){
         Monopoly.doubleCounter = 0;
         Monopoly.setNextPlayerTurn();
@@ -134,15 +133,12 @@ Monopoly.setNextPlayerTurn = function(){
       Monopoly.doubleCounter = 0;
     } else {
       nextPlayerId = playerId + 1;
-      console.log('nextId avant ' + nextPlayerId);
           while ($('#player' + nextPlayerId).hasClass('broke')){
             nextPlayerId = nextPlayerId + 1;
-            console.log('nextId apres ' + nextPlayerId);
         }
       if (nextPlayerId > $(".player").length){
           nextPlayerId = 1;
         }
-        console.log('nextId final ' + nextPlayerId);
     }
     currentPlayerTurn.removeClass("current-turn");
     var nextPlayer = $(".player#player" + nextPlayerId);
